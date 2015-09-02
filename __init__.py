@@ -18,7 +18,7 @@ class Singleton(type):
 
 
 class RPiBell(object):
-    __metaclass__ = Singleton
+    #__metaclass__ = Singleton
     pin_bell = 0
     ring_time = 0.5
     ring_interval = 0.5
