@@ -31,19 +31,22 @@ class RPiBell(object):
     def __del__(self):
         GPIO.cleanup()
 
-    def __setHigh(self):
+    def __set_high(self):
         GPIO.output(self.pin_bell, True)
 
-    def __setLow(self):
+    def __set_low(self):
         GPIO.output(self.pin_bell, False)
 
-    def ringOnce(self):
-        self.__setHigh()
+    def ring_once(self):
+        self.__set_high()
         time.sleep(self.ring_time)
-        self.__setLow()
+        self.__set_low()
+
+    def ring_times(self, times=1):
+        for i in xrange(0, times):
+            self.ring_once()
+            time.sleep(self.ring_interval)
 
     def ring(self, second):
-        times = second / (self.ring_time + self.ring_interval)
-        for i in range(0, times):
-            self.ringOnce()
-            time.sleep(self.ring_interval)
+        times = int(second / (self.ring_time + self.ring_interval))
+        self.ring_times(times)
