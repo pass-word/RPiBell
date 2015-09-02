@@ -20,7 +20,7 @@ class Singleton(type):
 class RPiBell(object):
     #__metaclass__ = Singleton
     pin_bell = 0
-    ring_time = 0.5
+    ring_time = 0.025
     ring_interval = 0.5
 
     def __init__(self, pin_bell=18):
