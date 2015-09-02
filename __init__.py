@@ -28,7 +28,7 @@ class RPiBell(object):
         GPIO.cleanup()
         GPIO.setmode(GPIO.BCM)
         self.pin_bell = pin_bell
-        GPIO.cleanup(self.pinBell)
+        GPIO.cleanup(self.pin_bell)
         GPIO.setup(self.pin_bell, GPIO.OUT)
 
     def __del__(self):
