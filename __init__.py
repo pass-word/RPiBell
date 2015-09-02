@@ -24,9 +24,11 @@ class RPiBell(object):
     ring_interval = 0.5
 
     def __init__(self, pin_bell=18):
+        # GPIO.setwarnings(False)
         GPIO.cleanup()
         GPIO.setmode(GPIO.BCM)
         self.pinBell = pin_bell
+        GPIO.cleanup(self.pinBell)
         GPIO.setup(self.pin_bell, GPIO.OUT)
 
     def __del__(self):
